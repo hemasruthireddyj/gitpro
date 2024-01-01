@@ -19,6 +19,13 @@ pipeline {
         }
         stage('docker build & push') {
             steps {
+                script{
+                withDockerRegistry(credentialsId: 'd99ce8e5-4954-4982-b967-ec92b9f2a070') {
+                    sh "docker build -t hemasruthireddyj/devoplive:tagname"
+                    sh "docker push"
+}
+}
+                }
                 
             }
         }
